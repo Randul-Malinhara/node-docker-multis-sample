@@ -3,11 +3,13 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
+const morgan = require('morgan');
+app.use(morgan('dev')); // Logging middleware
+
+
 app.get('/', (req, res) => {
   res.send('Hello from Node.js Dockerized App!');
 });
-
-
 
 app.get('/about', (req, res) => {
     res.send('This is a Node.js app demonstrating Docker multi-stage builds.');
